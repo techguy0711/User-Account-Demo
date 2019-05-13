@@ -7,6 +7,10 @@ import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import org.jetbrains.anko.custom.async
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
+import org.jetbrains.anko.uiThread
+import org.json.JSONArray
 import java.net.URL
 import java.util.concurrent.Executors
 
@@ -21,15 +25,18 @@ class MainActivity : AppCompatActivity() {
         users.adapter = adapter
         val Adapter = ArrayAdapter<String>(this,
             android.R.layout.simple_list_item_1, userData)
-
-        users.adapter = Adapter
         val executor = Executors.newScheduledThreadPool(4)
-        async(executor) { // omit the parameter to use the default executor
+        doAsync {
             val result = URL("https://reqres.in/api/users").readText()
+            uiThread {
+                val welcome = Welcome.fromJson(result)
+                for (jsonIndex in 0 until welcome!!.data.size) {
+                    userData.add("First name: "+welcome!!.data[jsonIndex].firstName+"\n Last name:"+welcome!!.data[jsonIndex].lastName)
+                }
+                users.adapter = Adapter
 
+            }
         }
-
-
     }
     fun onClickAddUser(v:View) {
 
