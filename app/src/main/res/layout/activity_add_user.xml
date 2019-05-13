@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AddUser" android:id="@+id/root_addUser">
+    <TextView
+            android:layout_width="398dp"
+            android:layout_height="39dp" tools:layout_editor_absoluteY="120dp"
+            android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:hint="First Name"
+            android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/holo_red_dark"
+            android:textColorHint="@android:color/holo_red_dark" android:background="@android:color/holo_blue_bright"/>
+    <TextView
+            android:layout_width="398dp"
+            android:layout_height="39dp" tools:layout_editor_absoluteY="185dp"
+            android:id="@+id/textView" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:hint="Last Name"
+            android:textSize="18sp" android:textStyle="bold" android:textColor="@android:color/holo_red_dark"
+            android:textColorHint="@android:color/holo_red_dark" android:background="@android:color/holo_blue_bright"
+            app:layout_constraintHorizontal_bias="0.0"/>
+</android.support.constraint.ConstraintLayout>
